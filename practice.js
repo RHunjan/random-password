@@ -5,15 +5,22 @@
   var pwOrder = [];
   var password = [];
   var pwNumbers = [0,1,2,3,4,5,6,7,8,9];
-  var pwLetters = ['a','b', 'c','d'];
-  var pwLetCap = ['A', 'B', 'C','D', 'E'];
-  var pwCharacters = ['!', '@', '%', '&'];
+  var pwLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s',
+  't','u','v','w','x','y','z'];
+  var pwLetCap = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S',
+  'T','U','V','W','X','Y','Z'];
+  var pwCharacters = ['!', '@', '%', '&', '#', '$', '(', ')'];
+  let counter = 0;
+  var passwordLength = 0;
 
   //Start function to determine password length
 
-  var pwLength = function (){
+  var pwordLength = function (){
       //prompt for length of password - enter a number between 8 and 128
       var pwLength = window.prompt('Enter a password length between 8 and 128');
+      passwordLength = pwLength;
+  
+         
       // confirming length of the password is valid
        if (pwLength < 8 || pwLength > 128){
         window.alert('TRY AGAIN! Pick a password length between 8 and 128 characters');
@@ -23,6 +30,7 @@
     // function for including number
     var includeNumbers = function(){
       var numbers = window.confirm('Do you want to include numbers in your password?');
+      counter = counter +1;
 
       if (numbers){
         window.alert('Your password will contain numbers');
@@ -32,7 +40,7 @@
            password.push(pwNumbers[ranInt]);
            console.log(password);
             // add pwNumbers into pwOptions []
-          for (i=0; i <=pwNumbers.length;i++){
+          for (let i=0; i <pwNumbers.length;i++){
           pwOptions.push(pwNumbers[i]);
           }
           
@@ -48,6 +56,8 @@
 
       var includeLower = function(){
       var lowerLetters = window.confirm('Do you want to include lower case letters in your password?');
+        counter = counter + 1;
+
         // add random lowercase letter to password []
      if (lowerLetters){
         window.alert('Your password will contain lowercase letters.');
@@ -57,7 +67,7 @@
         console.log(password);
 
           //add pwLetters into pwOptions []
-        for (j=0; j <=pwLetters.length;j++){
+        for (let j=0; j <pwLetters.length;j++){
          pwOptions.push(pwLetters[j]);
           }
 
@@ -70,6 +80,7 @@
    //function to include capital letters
    var includeUpper = function (){
      var upper = window.confirm('Do you want to include capital letters in your password?');
+      counter = counter +1;
      //add random capital letter into password []
      if (upper){
        window.alert('Your password will contain capital letters.');
@@ -79,7 +90,7 @@
        console.log(password);
 
           // add pwLetters into pwOptions []
-        for (k=0; k <=pwLetCap.length;k++){
+        for (let k=0; k <pwLetCap.length;k++){
           pwOptions.push(pwLetCap[k]);
           }
 
@@ -92,6 +103,7 @@
 
      var includeSpecial = function(){
         var characters = window.confirm('Do you want to include special characters in your password?');
+         counter = counter +1;
         
         //add random special character into password []
         if(characters){
@@ -101,29 +113,50 @@
           password.push(pwCharacters[ranInt4]);
          console.log(password);
 
-         for (x=0; x<=pwCharacters.length; x++){
+         for (let x=0; x<pwCharacters.length; x++){
            pwOptions.push(pwCharacters[x]);
-           password = [];
-           pwOptions = [];
+         
          }
           
         }
         else {
           window.alert("You must choose at least one character type for your password. Try again.")
+           password = [];
+           pwOptions = [];
           generatePassword();
+
         }
 
      };
 
      // function to generate remainder of password
 
+     var remainingCharacters = function(){
+      console.log(passwordLength);
+      console.log(counter);
+      var difference = passwordLength - counter;
+      console.log(difference);
+      console.log(pwOptions);
+
+      for (let q=0; q < difference; q++){
+        let ranInt5 = Math.floor(Math.random() * (pwOptions.length));
+       console.log(ranInt5);
+       password.push(pwOptions[ranInt5]);
+            
+      }
+ 
+      console.log(password);
+
+     };
+
      //function to generate the password
     var generatePassword = function(){
-     pwLength();
+     pwordLength();
      includeNumbers();
      includeLower();
      includeUpper();
      includeSpecial();
+     remainingCharacters();
  };
 
  generatePassword();
