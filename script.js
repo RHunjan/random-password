@@ -113,20 +113,17 @@
 
          for (let x=0; x<pwCharacters.length; x++){
            pwOptions.push(pwCharacters[x]);
-         
-         }
+           }
            } 
-
            else {
-
-           //function to check they added one character type
-         
+      
 
           window.alert("Your password will NOT include special characters");
        
 
          }};
 
+        
         
      // function to generate remainder of password
 
@@ -148,13 +145,7 @@
 
      };
 
-       //function to join elements in password
-      //  var finalPassword = function(){
-       // var passwordF = password.join('');
-       // console.log(passwordF);
-       // return passwordF;
-    //  }
-  
+     
 
      //function to generate the password
     var generatePasswordWork = function(){
@@ -163,6 +154,7 @@
      includeLower();
      includeUpper();
      includeSpecial();
+    
      remainingCharacters();
      //finalPassword();
  };
