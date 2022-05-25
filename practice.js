@@ -149,6 +149,13 @@
 
      };
 
+       // function to join elements in password
+        var finalPassword = function(){
+        var finalPw = password.join('');
+        console.log(finalPw);
+  }
+  
+
      //function to generate the password
     var generatePassword = function(){
      pwordLength();
@@ -157,15 +164,10 @@
      includeUpper();
      includeSpecial();
      remainingCharacters();
+     finalPassword();
  };
 
-  // function to join elements in password
-  var finalPassword = function(){
-    var finalPw = password.join('');
-    console.log(finalPw);
-  }
-  
+
  
 
  generatePassword();
- finalPassword();
