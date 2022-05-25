@@ -159,4 +159,13 @@
      remainingCharacters();
  };
 
+  // function to join elements in password
+  var finalPassword = function(){
+    var finalPw = password.join('');
+    console.log(finalPw);
+  }
+  
+ 
+
  generatePassword();
+ finalPassword();
