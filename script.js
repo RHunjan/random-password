@@ -115,18 +115,19 @@
            pwOptions.push(pwCharacters[x]);
          
          }
-          
-        }
-        else {
-          window.alert("You must choose at least one character type for your password. Try again.")
-           password = [];
-           pwOptions = [];
-          generatePassword();
+           } 
 
-        }
+           else {
 
-     };
+           //function to check they added one character type
+         
 
+          window.alert("Your password will NOT include special characters");
+       
+
+         }};
+
+        
      // function to generate remainder of password
 
      var remainingCharacters = function(){
@@ -148,11 +149,11 @@
      };
 
        //function to join elements in password
-        var finalPassword = function(){
-        var passwordF = password.join('');
-        console.log(passwordF);
-        return passwordF;
-      }
+      //  var finalPassword = function(){
+       // var passwordF = password.join('');
+       // console.log(passwordF);
+       // return passwordF;
+    //  }
   
 
      //function to generate the password
